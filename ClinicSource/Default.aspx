@@ -19,10 +19,9 @@
         .text-header {
             color: black;
             text-align: center;
-            top: 19%;
-            left: 4%;
+            transform:translate(50px,10px);
             width: 100px;
-            position: absolute;
+            position:relative;
             background-color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -187,7 +186,7 @@
         </div>
 
         <div style="margin: 10px">
-            <%--<div class="text-header">PATIENTS</div>--%>
+            <div class="text-header">PATIENTS</div>
             <telerik:RadAjaxPanel runat="server" ID="PatientEntry" BorderWidth="1px" BorderStyle="Solid"
                 BorderColor="#99ccff" Style="border-radius: 25px;" Width="30%">
                 <br />

@@ -121,7 +121,16 @@ public partial class Default : System.Web.UI.Page
             adapter.Fill(dsPatients, "Patients");
             dsPatients.Tables["Patients"].Rows[0]["FirstName"] = tbFName.Text;
             dsPatients.Tables["Patients"].Rows[0]["LastName"] = tbLName.Text;
-            dsPatients.Tables["Patients"].Rows[0]["DOB"] = dpDOB.DateInput.DisplayText;
+           
+            if (dpDOB.DateInput.DisplayText == "")
+            {
+                dsPatients.Tables["Patients"].Rows[0]["DOB"] = DBNull.Value;
+            }
+            else
+            {
+                dsPatients.Tables["Patients"].Rows[0]["DOB"] = dpDOB.DateInput.DisplayText;
+            }
+            
             dsPatients.Tables["Patients"].Rows[0]["Allergies"] = tbAllergies.Text;
             dsPatients.Tables["Patients"].Rows[0]["Deleted"] = 0;
             new SqlCommandBuilder(adapter);
